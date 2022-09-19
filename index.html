@@ -3,9 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <title>Nep huiswerkopdracht</title>
+    <title>Git Workshop 2</title>
 </head>
 <body>
+<h2>Git Commando's</h2>
+<section>
+    <p>Bestanden met code worden actief bewerkt en vervolgens op de computer (local machine) opgeslagen. Om geschreven
+        code te verzekeren voor behoud, worden de bestanden ook op een server (remote of origin) opgeslagen. Het
+        overdragen van die bestanden wordt via Git uitgevoerd. De bewerkte bestanden worden voor ieder project
+        afzonderlijk naar Git overgedragen. Het tegelijkertijd overdragen van bestanden uit verschillende projecten is
+        dus niet mogelijk.</p>
+    <h3><code>Files van Local naar Remote:</code></h3>
+    <ol>
+        <li><strong>Stage</strong> bestanden met het commando: <code> git add .</code></li>
+        <li>Controleer met <code>git status</code></li>
+        <li><strong>Commit</strong> bestanden met het commando: <code> git commit -m "omschrijving van project
+            wijzigingen"</code></li>
+        <li>Contoleer met <code>git status</code></li>
+        <li><strong>Push</strong> bestanden met het commando: <code> git push origin main</code></li>
+        <li>Controleer met<code>git status</code></li>
+    </ol>
+</section>
+<section>
+    <h2>Branches</h2>
+    <h4>Aftakkingen in tijd</h4>
+    <article>
+        <h5>Individueel project</h5>
+        <p>Een developer dat zelfstandig aan een project werkt, gebruikt de <em>main branch.</em> Dat is de hoofd
+            tijdlijn van het project.</p>
+        <br>
+        <h5>Samenwerken aan een project</h5>
+        <p>Het is mogelijk om bestanden die op de server <strong>(remote of origin)</strong> staan over te dragen naar
+            een individuele computer <strong>(local).</strong> Bij het samenwerken aan een project kunnen meerdere
+            developers bestanden van de <em>Remote</em> naar de eigen computer overdragen. Dit gaat
+            middels<strong><code>git clone</code></strong><!-- Klopt deze code? --> Iedere developer dat op hetzelfde
+            moment op Github is ingelogd, is verbonden met de <strong>main branche</strong> (hoofd tijdlijn). Zodra een
+            developer zelfstandig aan een opdracht werkt, maakt deze een <strong>feature branch</strong> (afzonderlijke
+            branche) aan. Er ontstaat hierdoor een aftakking in de tijd. Zo kan elke developer aan een eigen opdracht in
+            het project werken. En zo ontstaan er meerdere <strong>feature branches.</strong> Op elke branch zullen
+            commits gemaakt worden. Zodra een developer klaar is met de opdracht kan die de feature branch naar de
+            Remote overgedragen via<strong><code>git push origin main</code></strong></p>
 
+        <p>Het is conventie om de code in de main branch correct en foutloos te houden. Zodra er tevredenheid en
+            consensus is over een individuele feature branch kan deze via <strong><code>git merge</code></strong>samengevoegd
+            worden met de <em>main branch.</em> Daarom wordt niet iedere feature branch zondermeer samengevoegd.</p>
+        <p>Zodra een feature branch naar de Remote is overgedragen, zal Github vragen of er een <strong>Pull
+            Request</strong> uitgevoerd moet worden. De <em>Pull Request</em> is een overzicht van de veranderingen
+            tussen de nieuwe code van de feature branche en de code van de main branch. De Pull Request toont het
+            daadwerkelijke verschil tussen beide codes. Als de Pull Request geen resultaat toont is er dus geen verschil
+            tussen beide codes.</p>
+        <p>Zodra de Pull Request is uitgevoerd kan de code in de feature branch middels een review door een andere
+            (senior) developer gecontroleerd worden. Deze zal in de review feedback gegeven over de geschreven code. De
+            Pull Request wordt dan met feedback voorzien. Na het opvolgen en voltooien van de aanbevelingen wordt de
+            Pull Request opnieuw verzonden.</p>
+        <p>Zodra de code aan de gewenste eisen voldoet geeft de controleur akkoord middels <strong>Approve.</strong> De
+            gewijzigde feature branch kan nu met de main branch worden samengevoegd. Gebruik in de Pull Request hiervoor
+            de button<code>Merge.</code> Op de Remote staat nu de samengevoegde code. Op de local is deze samenvoeging
+            nog niet zichtbaar, de tijdlijn op de <em>local</em> loopt achter op de tijdlijn van de <em>Remote.</em></p>
+        <p>Het is (in uitzonderlijke gevallen) mogelijk om een Merge terug te draaien via een <strong>Rollback.</strong>
+            Maar het is gebruikelijker om fouten op te lossen met het aanmaken van een nieuwe feature branch. Dit is een<strong>HotFix.</strong>
+        </p>
+        <h4>Synchroniseren van Remote en local</h4>
+        <p>Om de tijdlijnen van de local te synchroniseren met de tijdlijn van de Remote wordt <strong><code>git
+            pull origin main</code></strong> gebruikt. De feature branch kan nu van de local verwijderd worden,
+            aangezien die code
+            nu in de main branch aanwezig is. Een andere developer die aan een eigen feature branch werkt en deze nog
+            niet had samengevoegd met de main branch, loopt door een eerdere samenvoeging achter op de tijdlijn van de
+            main branch. Voordat de developer diens feature branch gaat samenvoegen zal er eerst een <strong><code>git
+                pull origin main</code></strong> uitgevoerd moeten worden.</p>
+        <p>Een developer kan nu met een nieuwe taak beginnen waardoor het voorgaande process zich weer zal herhalen.</p>
+    </article>
+    <h2>Git Clone</h2>
+    <p>Op de <em>Remote</em> (Github) staat een opdracht. Om aan deze opdracht te kunnen werken wordt deze eerst naar de
+        <em>local machine</em> overgedragen. Kopieer in Git de link via <strong>code</strong> - <strong>SSH</strong></p>
+    <p>Open in Webstorm <strong>VCS</strong> - <strong>Get from Version Control</strong></p>
+    <p>Kies <strong>Repository URL</strong> - Voer de link in en klik op de button <strong>Clone</strong></p>
+    <p>Open in Webstorm de terminal</p>
+    <p>Voer het commando: <strong><code>git remote remove origin</code></strong></p>
+    <!-- Hier zit eerst nog een onderdeel tussen @recording 1:23 a 1:26  -->
+    <h2>Local Feature branch</h2>
+    <p>Een nieuwe feature branch aanmaken op de local machine:</p>
+    <p>Voer in de terminal het commando <Strong><code>git checkout -b naam-van-branch</code></Strong></p>
+    <p>Om te controleren hoeveel branches aangemaakt zijn, voer je het commando <strong><code>git branch</code></strong>
+        in. Tevens wordt hier de branch waarin je werkt in groene tekst weergegeven.</p>
+    <p>Om te veranderen naar een andere branch, voer je het commando <strong><code>git checkout
+        naam-van-branch</code></strong> in.</p>
+    <p>Om terug te gaan naar de main branch, voer je het commando <strong><code>git checkout main</code></strong> in.</p>
+    <p>Na het maken van wijzigingen volg je onderstaande stappen:</p>
+    <ol>
+        <li><code>git add .</code></li>
+        <li><code>git commit -m "naam bericht"</code></li>
+        <li><code>git push origin naam-van-branch</code></li>
+    </ol>
+    <p>Met de laatste code wordt het bestand naar de Remote verstuurd.</p>
+
+    <h1>VERVOLG RECORDING @ </h1>
+</section>
 </body>
 </html>
