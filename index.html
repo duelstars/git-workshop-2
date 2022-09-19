@@ -88,14 +88,26 @@
         in. Tevens wordt hier de branch waarin je werkt in groene tekst weergegeven.</p>
     <p>Om te veranderen naar een andere branch, voer je het commando <strong><code>git checkout
         naam-van-branch</code></strong> in.</p>
-    <p>Om terug te gaan naar de main branch, voer je het commando <strong><code>git checkout main</code></strong> in.</p>
+    <p>Om terug te gaan naar de main branch, voer je het commando <strong><code>git checkout main</code></strong> in.
+    </p>
     <p>Na het maken van wijzigingen volg je onderstaande stappen:</p>
     <ol>
         <li><code>git add .</code></li>
         <li><code>git commit -m "naam bericht"</code></li>
         <li><code>git push origin naam-van-branch</code></li>
     </ol>
-    <p>Met de laatste code wordt het bestand naar de Remote verstuurd.</p>
+    <p>Met de laatste code wordt het bestand naar de Remote verstuurd. </p>
+    <h2>Pull Request</h2>
+    <p>Nu kan in de terminal de voorgestelde link gevolgd worden om een Pull Request aan te maken. In Github staat de
+        Pull Request klaar, kies voor <strong>Create Pull Request.</strong></p>
+    <p>Als een collega developer de code in de Pull Request wilt controleren, kan deze zijn aanbevelingen per regel code
+        bij <strong>Files Changed</strong>toevoegen. Zodra de aanbevelingen in de review klaar zijn wordt deze met
+        <strong>submit review</strong> verzonden. Bij consensus over de code wordt middels <strong>Approve</strong>
+        akkoord gegeven om de feature branch en de main branch samen te voegen middels <strong>Merge Pull
+            Request.</strong> In Github kan de feature branch nu verwijderd worden aangezien feature- en de main branch
+        nu gelijk zijn. Om nu de main branch naar de local over te dragen voer je het commando <strong><code>git pull
+            origin main</code></strong> in.</p>
+
 
     <h1>VERVOLG RECORDING @ </h1>
 </section>
